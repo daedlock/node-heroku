@@ -11,7 +11,9 @@ router.get('/', (req, res, next) => {
 
 router.get('/users', function(req,res){
   const getGithubUsers = (handle) => fetch('https://api.github.com/users/' + handle)
-  getGithubUsers(req.param('handle')).then((users) => res.json(users));
+  .then((res) => res.json());
+
+  getGithubUsers(req.param('handle')).then((users) => users);
 });
 
 module.exports = router;
