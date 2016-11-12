@@ -26,7 +26,7 @@ router.get('/repo', function(req,res){
   getGithubRepo(req.param('repo')).then((repo) => res.json(repo));
 });
 
-router.get('/time', function(req,res){
+router.get('/time2', function(req,res){
   res.json({time: new Date().getTime()});
 })
 module.exports = router;
