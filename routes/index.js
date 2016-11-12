@@ -16,4 +16,13 @@ router.get('/users', function(req,res){
   getGithubUsers(req.param('handle')).then((users) => res.json(users));
 });
 
+
+router.get('/repo', function(req,res){
+  const getGithubRepo = (repo) => fetch('https://api.github.com/repos/' + repo)
+  .then((res) => res.json());
+
+  console.log(req.param('repo'));
+
+  getGithubRepo(req.param('repo')).then((repo) => res.json(repo));
+});
 module.exports = router;
