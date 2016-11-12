@@ -1,5 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var fetch = require('node-fetch');
+
+
+function getGithubUsers(handle) {
+  return fetch('https://api.github.com/users/' + handle)
+  .then(function(res) {
+    return res.json();
+  });
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,13 +18,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/users', function(req,res){
-  var users = [
-    'user1',
-    'user2',
-    'user3'
-  ]
-
-  res.json(users);
+  getGithubUsers(req.param('handle')).then(function(users) {
+    res.json(users);
+  });
 });
 
 module.exports = router;
