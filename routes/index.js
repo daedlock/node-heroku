@@ -8,4 +8,14 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/users', function(req,res){
+  var users = [
+    'user1',
+    'user2',
+    'user3'
+  ]
+
+  res.json(users);
+});
+
 module.exports = router;
