@@ -25,12 +25,8 @@ router.get('/repo', function(req,res){
 
   getGithubRepo(req.param('repo')).then((repo) => res.json(repo));
 });
-<<<<<<< HEAD
-
 
 router.get('/time', function(req,res){
   res.json({time: new Date().getTime()});
 })
-=======
->>>>>>> 06550eecbd17800b005ab82341ba080d574d133a
 module.exports = router;
